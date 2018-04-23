@@ -36,7 +36,7 @@ export default {
                 }
             })
 
-            return { ...state,cipherValue:'',privateCode:privateCode,privateCodeHash:privateCodeHash,privateCodeOrigin:privateCodeOrigin,mark:state.mark+1}
+            return { ...state,privateCode:privateCode,privateCodeHash:privateCodeHash,privateCodeOrigin:privateCodeOrigin,mark:state.mark+1}
         },
         deleteUsedCode(state, { payload }) {
             const {keyHash} = payload;
@@ -47,7 +47,7 @@ export default {
                     privateCodesNew.push(item);
                 }
             })
-            return { ...state,privateCodes:privateCodesNew,cipherValue:'',mark:state.mark+1}
+            return { ...state,privateCodes:privateCodesNew,mark:state.mark+1}
         },
         addPrivateCode(state, { payload }){
             let keyHash = sha256func(payload.originData);

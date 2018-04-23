@@ -44,6 +44,15 @@ class AesDescryptionPage extends Component {
             });
         });
     }
+    componentDidUpdate(){
+        const {mark} = this.props;
+        if(this.state.mark != mark && this.state.text){
+            this.setState({mark:mark})
+            this.props.dispatch(createAction('CipherResult/decryptionCipherValue')({
+                cipherData:this.state.text,
+            }));
+        }
+    }
     render() {
         const {cipherValue2,privateCodeOrigin} = this.props;
         return (

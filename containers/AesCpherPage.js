@@ -50,15 +50,15 @@ class AesPage extends Component {
             }
         })
     }
-    // componentDidUpdate(){
-    //     const {mark} = this.props;
-    //     if(this.state.mark != mark && this.state.text){
-    //         this.setState({mark:mark})
-    //         this.props.dispatch(createAction('CipherResult/changeCipherValue')({
-    //             originData:this.state.text,
-    //         }));
-    //     }
-    // }
+    componentDidUpdate(){
+        const {mark} = this.props;
+        if(this.state.mark != mark && this.state.text){
+            this.setState({mark:mark})
+            this.props.dispatch(createAction('CipherResult/changeCipherValue')({
+                originData:this.state.text,
+            }));
+        }
+    }
     copyToClipBoard(value){
         Clipboard.setString(value);
         Toast.show({
